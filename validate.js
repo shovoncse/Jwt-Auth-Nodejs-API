@@ -17,13 +17,13 @@ const registerValidation = (data) => {
 
 const loginValidation = (data) => {
 
-  const loginSchema = {
-    name: Joi.string().min(6).required(),
+  const loginSchema = Joi.object({
     email: Joi.string().min(6).required().email(),
     password: Joi.string().min(6).required(),
   
-  }
- return  Joi.validate(data, loginSchema);
+  })
+
+ return  loginSchema.validate(data);
 
 };
 
